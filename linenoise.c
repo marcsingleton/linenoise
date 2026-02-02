@@ -1488,10 +1488,10 @@ char *linenoiseEditFeed(struct linenoiseState *l) {
     case CTRL_E: /* ctrl+e, go to the end of the line */
         linenoiseEditMoveEnd(l);
         break;
-    case CTRL_L: /* ctrl+l, clear screen */
-        linenoiseClearScreen();
-        refreshLine(l);
-        break;
+    // case CTRL_L: /* ctrl+l, clear screen */
+    //     linenoiseClearScreen();
+    //     refreshLine(l);
+    //     break;
     case CTRL_W: /* ctrl+w, delete previous word */
         linenoiseEditDeletePrevWord(l);
         break;
