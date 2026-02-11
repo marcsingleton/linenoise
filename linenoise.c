@@ -1269,7 +1269,7 @@ int linenoiseEditStart(struct linenoiseState *l, int stdin_fd, int stdout_fd, ch
     l->len = 0;
 
     /* Enter raw mode. */
-    if (enableRawMode(l->ifd) == -1) return -1;
+    // if (enableRawMode(l->ifd) == -1) return -1;
 
     l->cols = getColumns(stdin_fd, stdout_fd);
     l->oldrows = 0;
@@ -1283,7 +1283,7 @@ int linenoiseEditStart(struct linenoiseState *l, int stdin_fd, int stdout_fd, ch
     /* If stdin is not a tty, stop here with the initialization. We
      * will actually just read a line from standard input in blocking
      * mode later, in linenoiseEditFeed(). */
-    if (!isatty(l->ifd) && !getenv("LINENOISE_ASSUME_TTY")) return 0;
+    // if (!isatty(l->ifd) && !getenv("LINENOISE_ASSUME_TTY")) return 0;
 
     /* The latest history entry is always our current buffer, that
      * initially is just an empty string. */
@@ -1316,7 +1316,7 @@ char *linenoiseEditMore = "If you see this, you are misusing the API: when linen
 char *linenoiseEditFeed(struct linenoiseState *l) {
     /* Not a TTY, pass control to line reading without character
      * count limits. */
-    if (!isatty(l->ifd) && !getenv("LINENOISE_ASSUME_TTY")) return linenoiseNoTTY();
+    // if (!isatty(l->ifd) && !getenv("LINENOISE_ASSUME_TTY")) return linenoiseNoTTY();
 
     char c;
     int nread;
@@ -1504,8 +1504,8 @@ char *linenoiseEditFeed(struct linenoiseState *l) {
  * returns something different than NULL. At this point the user input
  * is in the buffer, and we can restore the terminal in normal mode. */
 void linenoiseEditStop(struct linenoiseState *l) {
-    if (!isatty(l->ifd) && !getenv("LINENOISE_ASSUME_TTY")) return;
-    disableRawMode(l->ifd);
+    // if (!isatty(l->ifd) && !getenv("LINENOISE_ASSUME_TTY")) return;
+    // disableRawMode(l->ifd);
     // printf("\n");
 }
 
